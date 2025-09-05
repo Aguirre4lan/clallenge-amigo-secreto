@@ -20,7 +20,26 @@ function agregarAmigo() {
     //Actualiza el array de amigos
     amigos.push(nombre);
 
+    //muestra la lista
+    mostrarLista();
+
     //Limpia el campo de entrada
-    input.value = "";
-    
+    input.value = "";  
+}
+
+
+//Función para mostrar la lista de amigos en pantalla
+function mostrarLista() {
+    //Obtener el elemento de la lista en HTML
+    const lista = document.getElementById("listaAmigos");
+    //Limpia  la lista existente para evitar registros duplicados
+    lista.innerHTML = "";
+    //Recorrer el array de amigos
+    for (let i = 0; i < amigos.length; i++){
+        //Crear un elemento <li> para cada amigo
+        const li = document.createElement("li");
+        li.textContent = amigos[i];
+        //Agregar el <li> a la lista
+        lista.appendChild(li);
+    }
 }
